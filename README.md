@@ -1,2 +1,42 @@
-# golafzani-panel2
-2پنل گل افزانی - BoostedBPB (BBPB)- GolafzaniPanel2: a serverless cloudflare worker used for unbreak the filternet! - U3layerNet v2.0
+# golafzani-panel 2 📡
+
+BoostedBPB (BBPB)- GolafzaniPanel2: a serverless cloudflare worker used for unbreak the filternet! - U3layerNet v2.0
+# چه فرقی این پنل با EDtunnel اصلی میکنه؟
+- محیط کاربری زیبا تر
+- داشتن آیپی تمیز بروز شده
+- توصیه های مهم در پنل
+- ترجمه صحیح به زبان پارسی
+- اضافه شدن سیستم کنترل آیپی
+- مصرف تقریبا نیم بها ورکر در ریکوست
+- قدرت پردازش بالا
+- اورکلاک شده
+- سیستم پراکسی پایه 1
+- مصرف بهینه ریکوست
+- و ... در نسخه های جدید تر!
+
+
+GitHub Repository for CF-vless code author 3Kmfi6HP // CF preferred IP program author badafans, XIU2
+
+Github Repository for sample: https://github.com/bia-pain-bache/BPB-Worker-Panel
+Github Repository for BPB Ultra-Boosted worker: https://github.com/claxpoint/golafzani-panel2
+
+ask question and cloudflare ips: https://t.me/moeinchat
+our official channel: https://t.me/moeinnetwork
+
+
+Supported Clients:
+
+Client	Version	Fragment
+v2rayNG	1.8.19 or higher	✔️
+v2rayN	6.42 or higher	✔️
+Nekobox		❌
+Sing-box	1.8.10 or higher	❌
+Streisand		✔️
+V2Box		❌
+Shadowrocket		❌
+Nekoray		✔️
+Hiddify		❌
+
+
+Thank you BPB! we always make you high!
+
