@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Overclocked-Boost Core by U3jit - Project By Claxpoint
 // SampleSource and idea for BPB // پنل گل افزانی 🇮🇷 
 // U3jit - High.Multi.Protocol 
@@ -14,6 +15,7 @@ import { connect } from 'cloudflare:sockets';
 // یویوآیدی را تنظیم کنید
 // بهترین سایت برای برداشتن یویوآیدی اختصاصی: https://fusionauth.io/dev-tools/uuid-generator
 let userID = 'UUID_SHOMA';
+//در صورت ارور یویوآیدی یبار یویوآیدی را پاک کرده و دوباره وارد کنید و دپلوی و سیو را بزنید
 
 
 // ClaxpointNote: its better to use OPipTamiz for proxyIp
@@ -121,7 +123,7 @@ export default {
                             }
                         });
                                                       
-                    case '/golafzani-panel':
+                    case '/login':
 
                         if (typeof env.bpb !== 'object') {
                             const errorPage = renderErrorPage('اطلاعات و دیتاست کیوی انجام نشده است', null, true);
@@ -185,13 +187,13 @@ export default {
                             }
                         });        
 
-                    case '/golafzani-panel/password':
+                    case '/panel/password':
 
                         let passAuth = await Authenticate(request, env);
                         if (!passAuth) return new Response('Unauthorized!', { status: 401 });           
                         const newPwd = await request.text();
                         const oldPwd = await env.bpb.get('pwd');
-                        if (newPwd === oldPwd) return new Response('Please enter a new Password!', { status: 400 });
+                        if (newPwd === oldPwd) return new Response('پس جدید را وارد کنید!', { status: 400 });
                         await env.bpb.put('pwd', newPwd);
 
                         return new Response('Success', {
@@ -1688,10 +1690,10 @@ const renderHomePage = async (request, env, hostName, fragConfigs) => {
                             </div>
                         </td>
 						<td>
-                            <button onclick="openQR('https://${hostName}/sub/${userID}#BPB-Normal', 'Normal Subscription')" style="margin-bottom: 8px;">
+                            <button onclick="openQR('https://${hostName}/sub/${userID}#Golafzani-Normal', 'اشتراک عادی')" style="margin-bottom: 8px;">
                                 کیوآر کد&nbsp;<span class="material-symbols-outlined">qr_code</span>
                             </button>
-                            <button onclick="copyToClipboard('https://${hostName}/sub/${userID}#BPB-Normal', false)">
+                            <button onclick="copyToClipboard('https://${hostName}/sub/${userID}#Golafzani-Normal', false)">
                                 کپی اشتراک<span class="material-symbols-outlined">format_list_bulleted</span>
                             </button>
                         </td>
@@ -1708,7 +1710,7 @@ const renderHomePage = async (request, env, hostName, fragConfigs) => {
                             </div>
                         </td>
 						<td>
-                            <button onclick="copyToClipboard('https://${hostName}/sub/${userID}?app=singbox#BPB-Normal', false)">
+                            <button onclick="copyToClipboard('https://${hostName}/sub/${userID}?app=singbox#Golafzani-Normal', false)">
                                 کپی اشتراک<span class="material-symbols-outlined">format_list_bulleted</span>
                             </button>
 						</td>
@@ -1754,7 +1756,7 @@ const renderHomePage = async (request, env, hostName, fragConfigs) => {
                             </div>
                         </td>
                         <td>
-                            <button onclick="openQR('https://${hostName}/fragsub/${userID}#GolAfzani Fragment', 'Fragment Subscription')" style="margin-bottom: 8px;">
+                            <button onclick="openQR('https://${hostName}/fragsub/${userID}#GolAfzani Fragment', 'اشتراک فرگمنت')" style="margin-bottom: 8px;">
                                 کیوآر کد&nbsp;<span class="material-symbols-outlined">qr_code</span>
                             </button>
                             <button onclick="copyToClipboard('https://${hostName}/fragsub/${userID}#Golafzani Fragment', true)">
@@ -2034,7 +2036,7 @@ const renderHomePage = async (request, env, hostName, fragConfigs) => {
                 if (response.ok) {
                     modal.style.display = "none";
                     document.body.style.overflow = "";
-                    alert("Password changed successfully! 👍");
+                    alert("پس تغییر یافت");
                     window.location.href = '/login';
                 } else if (response.status === 401) {
                     const errorMessage = await response.text();
