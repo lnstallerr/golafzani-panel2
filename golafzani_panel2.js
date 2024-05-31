@@ -13,7 +13,7 @@ import { connect } from 'cloudflare:sockets';
 
 // یویوآیدی را تنظیم کنید
 // بهترین سایت برای برداشتن یویوآیدی اختصاصی: https://fusionauth.io/dev-tools/uuid-generator
-let userID = 'یویوآیدی شما';
+let userID = 'UUID_SHOMA';
 
 
 // ClaxpointNote: its better to use OPipTamiz for proxyIp
@@ -85,7 +85,7 @@ export default {
 
                         return new Response(`${JSON.stringify(fragConfigs, null, 4)}`, { status: 200 });
 
-                    case '/golafzani-panel':
+                    case '/panel':
 
                         if (typeof env.bpb !== 'object') {
                             const errorPage = renderErrorPage('دیتاست کیوی را درست نیست!', null, true);
@@ -121,7 +121,7 @@ export default {
                             }
                         });
                                                       
-                    case '/login':
+                    case '/golafzani-panel':
 
                         if (typeof env.bpb !== 'object') {
                             const errorPage = renderErrorPage('اطلاعات و دیتاست کیوی انجام نشده است', null, true);
@@ -1322,7 +1322,7 @@ const renderHomePage = async (request, env, hostName, fragConfigs) => {
                 </td>
                 <td>
                     <button onclick="copyToClipboard('${encodeURIComponent(JSON.stringify(config.config, null, 4))}', true)">
-                        Copy Config 
+                        کپی کانفیگ 
                         <span class="material-symbols-outlined">copy_all</span>
                     </button>
                 </td>
@@ -1689,10 +1689,10 @@ const renderHomePage = async (request, env, hostName, fragConfigs) => {
                         </td>
 						<td>
                             <button onclick="openQR('https://${hostName}/sub/${userID}#BPB-Normal', 'Normal Subscription')" style="margin-bottom: 8px;">
-                                QR Code&nbsp;<span class="material-symbols-outlined">qr_code</span>
+                                کیوآر کد&nbsp;<span class="material-symbols-outlined">qr_code</span>
                             </button>
                             <button onclick="copyToClipboard('https://${hostName}/sub/${userID}#BPB-Normal', false)">
-                                Copy Sub<span class="material-symbols-outlined">format_list_bulleted</span>
+                                کپی اشتراک<span class="material-symbols-outlined">format_list_bulleted</span>
                             </button>
                         </td>
 					</tr>
@@ -1709,7 +1709,7 @@ const renderHomePage = async (request, env, hostName, fragConfigs) => {
                         </td>
 						<td>
                             <button onclick="copyToClipboard('https://${hostName}/sub/${userID}?app=singbox#BPB-Normal', false)">
-                                Copy Sub<span class="material-symbols-outlined">format_list_bulleted</span>
+                                کپی اشتراک<span class="material-symbols-outlined">format_list_bulleted</span>
                             </button>
 						</td>
 					</tr>
@@ -1717,15 +1717,15 @@ const renderHomePage = async (request, env, hostName, fragConfigs) => {
                         <td>
                             <div>
                                 <span class="material-symbols-outlined symbol">verified</span>
-                                <span>Sing-box - <b>Best Ping</b></span>
+                                <span>Sing-box - <b>بهترین پینگ</b></span>
                             </div>
                         </td>
                         <td>
                             <button onclick="openQR('sing-box://import-remote-profile?url=https://${hostName}/sub/${userID}?app=sfa#GolAfzani-Normal', 'اشتراک عادی')" style="margin-bottom: 8px;">
-                                QR Code&nbsp;<span class="material-symbols-outlined">qr_code</span>
+                                کیوآر کد&nbsp;<span class="material-symbols-outlined">qr_code</span>
                             </button>
                             <button onclick="copyToClipboard('https://${hostName}/sub/${userID}?app=sfa#GolAfzani-Normal', false)">
-                                Copy Sub<span class="material-symbols-outlined">format_list_bulleted</span>
+                                کپی اشتراک<span class="material-symbols-outlined">format_list_bulleted</span>
                             </button>
                         </td>
                     </tr>
@@ -1755,10 +1755,10 @@ const renderHomePage = async (request, env, hostName, fragConfigs) => {
                         </td>
                         <td>
                             <button onclick="openQR('https://${hostName}/fragsub/${userID}#GolAfzani Fragment', 'Fragment Subscription')" style="margin-bottom: 8px;">
-                                QR Code&nbsp;<span class="material-symbols-outlined">qr_code</span>
+                                کیوآر کد&nbsp;<span class="material-symbols-outlined">qr_code</span>
                             </button>
                             <button onclick="copyToClipboard('https://${hostName}/fragsub/${userID}#Golafzani Fragment', true)">
-                                Copy Sub<span class="material-symbols-outlined">format_list_bulleted</span>
+                                کپی اشتراک<span class="material-symbols-outlined">format_list_bulleted</span>
                             </button>
                         </td>
                     </tr>
@@ -1906,7 +1906,7 @@ const renderHomePage = async (request, env, hostName, fragConfigs) => {
 			textarea.select();
 			document.execCommand('copy');
 			document.body.removeChild(textarea);
-			alert('📋 Copied to clipboard:\\n\\n' +  value);
+			alert('📋 در کلیپ-بورد کپی شد\\n\\n' +  value);
 		}
 
         const applySettings = async (event, configForm) => {
@@ -1937,24 +1937,24 @@ const renderHomePage = async (request, env, hostName, fragConfigs) => {
             });
     
             if (invalidIPs.length) {
-                alert('⛔ Invalid IPs or Domains 🫤\\n\\n' + invalidIPs.map(ip => '⚠️ ' + ip).join('\\n'));
+                alert('⛔ ای پی یا دامین اشتباه است 🫤\\n\\n' + invalidIPs.map(ip => '⚠️ ' + ip).join('\\n'));
                 return false;
             }
 
             if (lengthMin >= lengthMax || intervalMin > intervalMax) {
-                alert('⛔ Minimum should be smaller or equal to Maximum! 🫤');               
+                alert('⛔ حداقل باید کوچکتر یا برابر با حداکثر باشد! 🫤');               
                 return false;
             }
 
             if (!(isVless && (hasSecurity && validSecurityType || !hasSecurity) && validTransmission) && chainProxy) {
-                alert('⛔ Invalid Config! 🫤 \\n - The chain proxy should be VLESS!\\n - Transmission should be GRPC,WS or TCP\\n - Security should be TLS,Reality or None');               
+                alert('⛔ کانفیگ اشتباه! 🫤 \\n - The chain proxy should be VLESS!\\n - Transmission should be GRPC,WS or TCP\\n - Security should be TLS,Reality or None');               
                 return false;
             }
 
             try {
                 document.body.style.cursor = 'wait';
                 const applyButtonVal = applyButton.value;
-                applyButton.value = '⌛ Loading...';
+                applyButton.value = '⌛📡 در حال ست کردن پارامتر ها با هسته مادر یوتری.جیت';
 
                 const response = await fetch('/panel', {
                     method: 'POST',
@@ -1966,12 +1966,12 @@ const renderHomePage = async (request, env, hostName, fragConfigs) => {
                 applyButton.value = applyButtonVal;
 
                 if (response.ok) {
-                    alert('Parameters applied successfully 😎');
+                    alert('📡پارامتر گل افزانی با موفقیت شبکه ست شد');
                     window.location.reload(true);
                 } else {
                     const errorMessage = await response.text();
                     console.error(errorMessage, response.status);
-                    alert('⚠️ Session expired! Please login again.');
+                    alert('⚠️ مدت زمان فعال بودن در پنل تمام شده! بار دیگر تلاش کنید.');
                     window.location.href = '/login';
                 }           
             } catch (error) {
@@ -2040,7 +2040,7 @@ const renderHomePage = async (request, env, hostName, fragConfigs) => {
                     const errorMessage = await response.text();
                     passwordError.textContent = '⚠️ ' + errorMessage;
                     console.error(errorMessage, response.status);
-                    alert('⚠️ Session expired! Please login again.');
+                    alert('⚠️  زمان ماندن شما در پنل تمام شده. دوباره لاگین کنید');
                     window.location.href = '/login';
                 } else {
                     const errorMessage = await response.text();
@@ -2158,7 +2158,7 @@ const renderLoginPage = async () => {
                 });
             
                 if (response.ok) {
-                    window.location.href = '/golafzani-panel';
+                    window.location.href = '/login';
                 } else {
                     passwordError.textContent = '⚠️ رمز اشتباه است!';
                     const errorMessage = await response.text();
