@@ -2,9 +2,10 @@
 
 * برای نصب پنل KV namespace را golafzani یا bpb بزارید و در قسمت مقدار ها kv namespace bindings را بر روی bpb بزارید
 
-* توجه کنید که برای ورود به پنل خود برای مثال xxx.xxxxxx.workers.dev/golafzani-panel را برای ورود وارد کنید
+* توجه کنید که برای ورود به پنل خود برای مثال xxx.xxxxxx.workers.dev/panel را برای ورود وارد کنید
 
 * رمز ورود به پنل بصورت پیشفرض root میباشد!
+* *حتما برای امنیت بیشتر رمز را در پنل تغییر دهید (در آخر صفحه پنل یک دکمه سیاه وجود دارد بر روی آن کلیک کرده و پسورود را تغییر دهید*
   
 BoostedBPB (BBPB)- GolafzaniPanel2: a serverless cloudflare worker used for unbreak the filternet! - U3layerNet v2.0
 # چه فرقی این پنل با BPB اصلی میکنه؟
