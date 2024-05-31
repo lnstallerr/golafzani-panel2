@@ -1,5 +1,6 @@
 # golafzani-panel 2 📡
 
+* برای نصب پنل KV namespace را golafzani یا bpb بزارید و در قسمت مقدار ها kv namespace bindings را بر روی bpb بزارید
 BoostedBPB (BBPB)- GolafzaniPanel2: a serverless cloudflare worker used for unbreak the filternet! - U3layerNet v2.0
 # چه فرقی این پنل با BPB اصلی میکنه؟
 - محیط کاربری زیبا تر
