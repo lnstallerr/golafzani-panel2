@@ -6,7 +6,7 @@
 // github.com/claxpoint
 //U3jit: A way for Free ,A way to Be Free
 
-//Remember to change the golafzani_worker.js name to worker.js on coudflare worker editor
+//Remember to change the golafzani_panel2.js name to worker.js on coudflare worker editor
 //Documents: https://github.com/claxpoint/golafzani-panel2/blob/main/README.md
 
 import { connect } from 'cloudflare:sockets';
