@@ -19,7 +19,7 @@ let userID = 'UUID_SHOMA';
 
 
 // ClaxpointNote: its better to use OPipTamiz for proxyIp
-const proxyIPs= ['u3jit.pages.dev'];
+const proxyIPs= ['cdn.xn--b6gac.eu.org', 'cdn-all.xn--b6gac.eu.org', 'edgetunnel.anycast.eu.org', 'u3jit.pages.dev'];
 //این پروکسی آی پی اختصاصی است و هر بار آی پی لاکر آن تغییر میکند
 //بدون نیاز به تغییر پروکسی این پروکسی لایه های پروکسی دارد
 // هسته این پروکسی از نوع U3jit میباشد
@@ -33,7 +33,7 @@ let proxyIP = proxyIPs[Math.floor(Math.random() * proxyIPs.length)];
 //Best way for a DNS query
 let dohURL = 'https://cloudflare-dns.com/dns-query';
 
-let panelVersion = '0.4';
+let panelVersion = '0.5';
 
 if (!isValidUUID(userID)) {
     throw new Error('یویوآیدی اشتباه است');
