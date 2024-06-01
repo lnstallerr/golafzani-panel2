@@ -33,7 +33,7 @@ let proxyIP = proxyIPs[Math.floor(Math.random() * proxyIPs.length)];
 //Best way for a DNS query
 let dohURL = 'https://cloudflare-dns.com/dns-query';
 
-let panelVersion = '0.1';
+let panelVersion = '0.4';
 
 if (!isValidUUID(userID)) {
     throw new Error('یویوآیدی اشتباه است');
