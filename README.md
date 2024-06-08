@@ -2,7 +2,7 @@
 
 * برای نصب پنل KV namespace را golafzani یا bpb بزارید و در قسمت مقدار ها kv namespace bindings را بر روی bpb بزارید
 
-  با تشکر فراوان از @freedomnet25500 که پروژه مارو عمومی کرد 3>
+  با تشکر فراوان از freedomnet25500@ که پروژه مارو عمومی کرد 3>
 
 * توجه کنید که برای ورود به پنل خود برای مثال xxx.xxxxxx.workers.dev/panel را برای ورود وارد کنید
 
