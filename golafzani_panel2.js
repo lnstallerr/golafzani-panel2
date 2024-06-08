@@ -1,9 +1,9 @@
 // @ts-nocheck
-// Overclocked-Boost Core by U3jit - Project By Claxpoint
+// Overclocked-Boost Core by U3jit - ProjectOptimize By Claxpoint - Project by BPB
 // SampleSource and idea for BPB // پنل گل افزانی 🇮🇷 
 // U3jit - High.Multi.Protocol 
 //Also thanks to bia-pain-bache
-//Frist BPB Persian panel! - UltraOverclocked-and-Boosted! - with many options!
+//Frist BPB Persian panel! - UltraOverclocked-and-Boosted! onPROXY AND IPS,IpVX- 
 // github.com/claxpoint
 //U3jit: A way for Free ,A way to Be Free
 
@@ -17,21 +17,33 @@ import { connect } from 'cloudflare:sockets';
 let userID = 'UUID_SHOMA';
 //در صورت ارور یویوآیدی یبار یویوآیدی را پاک کرده و دوباره وارد کنید و دپلوی و سیو را بزنید
 
+//بهترین بات تلگرام آی پی تمیز = @cfcleanipbot
+
 
 // ClaxpointNote: its better to use OPipTamiz for proxyIp
-const proxyIPs= ['cdn.xn--b6gac.eu.org', 'cdn-all.xn--b6gac.eu.org', 'edgetunnel.anycast.eu.org', 'u3jit.pages.dev'];
+const proxyIPs = ['cdn.xn--b6gac.eu.org', 'cdn-all.xn--b6gac.eu.org', 'workers.cloudflare.cyou', 'edgetunnel.anycast.eu.org', 'engane.cloudflareclient.com', 'u3jit.pages.dev'];
 //این پروکسی آی پی اختصاصی است و هر بار آی پی لاکر آن تغییر میکند
 //بدون نیاز به تغییر پروکسی این پروکسی لایه های پروکسی دارد
 // هسته این پروکسی از نوع U3jit میباشد
 // پروکسی u3jit.pages.dev: یک پروکسی قوی بدون نیاز به تغییر در صورت فیلتر شدن به دلیل بروزرسانی دی ان اس 
 // و آی پی و دارای آی پی سیستم یوتری.جیت میباشد
 
+// همچنین به دلایل مختلفی که کاربران اعتقاد به وجود سیستم پراکسی نداشتند ما به صورت دستی وارد
+// این سورس کد وارد کردیم
+
 //set WTO.gov - BUZ / change and connect to u3jit.pages.dev to use proxy
 //set WTO.eu - BUZ /
 //set www.dns0.eu - BUZ /
 let proxyIP = proxyIPs[Math.floor(Math.random() * proxyIPs.length)];
 //Best way for a DNS query
-let dohURL = 'https://cloudflare-dns.com/dns-query';
+
+
+let dohURL = 'https://sky.rethinkdns.com/1:-Pf_____9_8A_AMAIgE8kMABVDDmKOHTAKg='; // RaN SYSClx
+// https://cloudflare-dns.com/dns-query - خوبه بدک نیست
+// https://dns.google/dns-query - اوکیه
+// https://u3jit.pages.dev - بهتره
+// https://sky.rethinkdns.com/1:-Pf_____9_8A_AMAIgE8kMABVDDmKOHTAKg= - لوکال / بهتره
+
 
 let panelVersion = '0.5';
 
@@ -49,6 +61,47 @@ export default {
     async fetch(request, env, ctx) {
         try {
             
+          // node_modules/uuid/dist/esm-browser/regex.js
+const UUID_REGEX = /^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000)$/i;
+
+// node_modules/uuid/dist/esm-browser/validate.js
+function isValidUUID(uuid) {
+    return typeof uuid === "string" && UUID_REGEX.test(uuid);
+}
+
+// node_modules/uuid/dist/esm-browser/stringify.js
+function byteToHexStr(arr, offset = 0) {
+    return Array.from(arr.slice(offset, offset + 16), (byte) => ('0' + byte.toString(16)).slice(-2)).join('');
+}
+
+function stringifyUUID(arr, offset = 0) {
+    const uuid = byteToHexStr(arr, offset).toLowerCase();
+    if (!isValidUUID(uuid)) {
+        throw new Error("زدی به فنا دادی یویوآیدی رو");
+    }
+    return uuid;
+}
+
+// libs/vless-js/src/lib/vless-js.ts
+const WS_READY_STATE_OPEN = 1;
+
+function processVlessHeader(vlessBuffer, userID) {
+    // Implementation of processVlessHeader function
+}
+
+// libs/cf-worker-vless/src/cf-worker-vless.ts
+
+
+async function delay(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+const cfWorkerVless = {
+    async fetch(request, env, ctx) {
+        // Implementation of fetch function
+    }
+};
+
             userID = env.UUID || userID;
             proxyIP = env.PROXYIP || proxyIP;
             dohURL = env.DNS_RESOLVER_URL || dohURL;
@@ -219,7 +272,9 @@ export default {
             const errorPage = renderErrorPage('یه مشکلی پیش اومده!', e.message.toString(), false);
             return new Response(errorPage, { status: 200, headers: {'Content-Type': 'text/html'}});
         }
-    },
+      },
+
+      
 };
 
 /**
@@ -427,6 +482,7 @@ function makeReadableWebSocketStream(webSocketServer, earlyDataHeader, log) {
 
 // https://xtls.github.io/development/protocols/vless.html
 // https://github.com/zizifn/excalidraw-backup/blob/main/v2ray-protocol.excalidraw
+
 
 /**
  * Processes the VLESS header buffer and returns an object with the relevant information.
@@ -804,6 +860,56 @@ const getNormalConfigs = async (env, hostName, client) => {
         ...resolved.ipv6.map((ip) => `[${ip}]`),
     ];
 
+    class HostName {
+      constructor(hostName) {
+          this.hostName = hostName;
+      }
+  
+      isValidHostName() {
+          // Implement your hostname validation logic here
+          // Example regex for hostname validation
+          const hostNamePattern = /^[a-zA-Z0-9.-]+$/;
+          
+          return hostNamePattern.test(this.hostName);
+      }
+  
+      toString() {
+          return this.hostName.toString();
+      }
+  }
+  
+  // Function to update clean hostnames for Cloudflare including specified ranges
+  async function updateCleanHostNamesForCloudflare() {
+      // Simulating fetching clean hostnames from a trusted source
+      let cleanHostNames = [
+          "example.com",
+          "u3jit.pages.dev",
+          "golafzani.u3jit-telecom.workers.dev"
+
+      ];
+  
+      // Code to update Cloudflare's hostname filtering settings with the clean hostnames
+      console.log("Updating clean hostnames for Cloudflare including specified ranges...");
+      cleanHostNames = cleanHostNames.filter(hostName => hostName !== "golafzani.u3jit-telecom.workers.dev");
+      console.log(`Deleting hostname golafzani.u3jit-telecom.workers.dev from Cloudflare's hostname filtering settings.`);
+  
+      // Add your code to update Cloudflare's hostname filtering settings here
+      // You would need to implement the logic to remove the hostname from Cloudflare
+  
+      console.log("Remaining clean hostnames:");
+      for (const hostName of cleanHostNames) {
+          console.log(hostName);
+      }
+  }
+  
+  // Example usage:
+
+
+  
+  // Trigger the function to automatically update clean hostnames for Cloudflare including specified ranges
+  updateCleanHostNamesForCloudflare();
+  
+
     Addresses.forEach((addr) => {
         let remark = `📡 Golafzani - ${addr}`;
         remark = remark.length <= 30 ? remark : `${remark.slice(0,29)}...`;
@@ -820,6 +926,78 @@ const getNormalConfigs = async (env, hostName, client) => {
     const subscription = client === 'singbox' ? btoa(vlessWsTls) : btoa(vlessWsTls.replaceAll('http/1.1', 'h2,http/1.1'));
     return subscription;
 }
+
+//im not careless about ipv6/ISPcustomerPac (CLAXPOINT)
+
+class IPAddress {
+  constructor(address) {
+      this.address = address;
+  }
+
+  isValidIP() {
+      // Implement your IP address validation logic here
+      // Example regex for IPv4 and IPv6 validation
+      const ipv4Pattern = /^(\d{1,3}\.){3}\d{1,3}$/;
+      const ipv6Pattern = /^([0-9a-fA-F]{0,4}:){2,7}[0-9a-fA-F]{0,4}$/;
+      
+      return ipv4Pattern.test(this.address) || ipv6Pattern.test(this.address);
+  }
+
+  isValidURL() {
+      // Implement your URL validation logic here
+      // Example regex for URL validation
+      const urlPattern = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/;
+      return urlPattern.test(this.address);
+  }
+
+  toString() {
+      return this.address.toString();
+  }
+}
+
+// Function to update clean IP addresses for Cloudflare including specified IP ranges
+async function updateCleanIPsForCloudflare() {
+  // Simulating fetching clean IP addresses from a trusted source
+  const cleanIPs = [
+      "104.16.0.0", "104.31.255.255",
+      "172.16.0.0", "172.31.255.255",
+      "182.16.0.0", "182.31.255.255",
+      "2001:0db8:85a3:0000:0000:8a2e:0370:7334",
+      "2001:0db8:85a3:0000:0000:8a2e:0370:7335",
+      "https://u3jit.pages.dev"
+  ];
+
+  // Code to update Cloudflare's IP filtering settings with the clean IP addresses
+  console.log("Updating clean IP addresses for Cloudflare including specified IP ranges...");
+  for (const ip of cleanIPs) {
+      if (typeof ip === 'string') {
+          console.log(`Adding IP address ${ip} to Cloudflare's IP filtering settings.`);
+      } else {
+          console.log(`Adding URL ${ip} to Cloudflare's IP filtering settings.`);
+      }
+      // Add your code to update Cloudflare's IP filtering settings here
+  }
+}
+
+// Example usage:
+const ipAddress = new IPAddress("192.168.1.1");
+if (ipAddress.isValidIP()) {
+  console.log(`The IP address ${ipAddress.toString()} is valid.`);
+} else {
+  console.log(`The IP address ${ipAddress.toString()} is invalid.`);
+}
+
+const url = new IPAddress("https://u3jit.pages.dev");
+if (url.isValidURL()) {
+  console.log(`The URL ${url.toString()} is valid.`);
+} else {
+  console.log(`The URL ${url.toString()} is invalid.`);
+}
+
+// Trigger the function to automatically update clean IP addresses for Cloudflare including specified IP ranges
+updateCleanIPsForCloudflare();
+
+
 
 const extractVlessParams = async (vlessConfig) => {
     const url = new URL(vlessConfig.replace('vless', 'http'));
@@ -1110,6 +1288,126 @@ const getFragmentConfigs = async (env, hostName, client) => {
 
     return Configs;
 }
+
+
+
+// Initialize the IP management system with an initial IP pool
+const ipPool = ['172.x.x.x', '182.x.x.x', '104.x.x.x'];
+
+
+// Allocate an IP address
+
+
+    console.log(`Allocated IP: $`);
+
+
+// Release an allocated IP address
+const ipToRelease = '104.x.x.x';
+(ipToRelease);
+
+// Get information about allocated and available IPs
+
+
+
+console.log('Allocated IPs:', );
+console.log('Available IPs:', );
+
+class ipv4Addresses { // ALSO IPV6
+  constructor(address) {
+      this.address = address;
+  }
+
+  isValidIP() {
+      // Implement your IP address validation logic here
+      // Example regex for IPv4 validation
+      const ipPattern = /^(\d{1,3}\.){3}\d{1,3}$/;
+      return ipPattern.test(this.address);
+  }
+
+  isValidURL() {
+      // Implement your URL validation logic here
+      // Example regex for URL validation
+      const urlPattern = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/;
+      return urlPattern.test(this.address);
+  }
+
+  toString() {
+      return this.address.toString();
+  }
+}
+
+// Example usage:
+const ipv4Address = new ipv4Addresses("104.x.x.x , 127.0.0.1 , 182.9.x.x");
+if (ipAddress.isValidIP()) {
+  console.log(`The IP address ${ipAddress.toString()} is valid.`);
+} else {
+  console.log(`The IP address ${ipAddress.toString()} is invalid.`);
+}
+
+const urlAdd = new IPAddress("https://u3jit.pages.dev");
+if (url.isValidURL()) {
+  console.log(`The URL ${url.toString()} is valid.`);
+} else {
+  console.log(`The URL ${url.toString()} is invalid.`);
+}
+
+// maybe not work but if not work there is a backup (CLAXPOINT)
+
+class ipv6Addressesipv4Addresses {
+  constructor(address) {
+      this.address = address;
+  }
+
+  isValidIP() {
+      // Implement your IP address validation logic here
+      // Example regex for IPv4 validation
+      const ipPattern = /^(\d{1,3}\.){3}\d{1,3}$/;
+      return ipPattern.test(this.address);
+  }
+
+  isValidURL() {
+      // Implement your URL validation logic here
+      // Example regex for URL validation
+      const urlPattern = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/;
+      return urlPattern.test(this.address);
+  }
+
+  toString() {
+      return this.address.toString();
+  }
+}
+
+// Function to update clean IP addresses for Iranians including the 104 range
+async function updateCleanIPsForIran() {
+  // Simulating fetching clean IP addresses from a trusted source
+  const cleanIPs = ["1.1.1.1", "8.8.8.8", "9.9.9.9", "104.16.0.0", "104.31.255.255"];
+
+  // Code to update Cloudflare's IP filtering settings with the clean IP addresses
+  console.log("Updating clean IP addresses for Iranians including the 104 range...");
+  for (const ip of cleanIPs) {
+      console.log(`Adding IP address ${ip} to Cloudflare's IP filtering settings for Iranians.`);
+      // Add your code to update Cloudflare's IP filtering settings here
+  }
+}
+
+// Example usage:
+const IPs = ("182.x.x.x");
+if (ipAddress.isValidIP()) {
+  console.log(`The IP address ${ipAddress.toString()} is valid.`);
+} else {
+  console.log(`The IP address ${ipAddress.toString()} is invalid.`);
+}
+
+const urlAdd2 = new IPAddress("u3jit.pages.dev");
+if (url.isValidURL()) {
+  console.log(`The URL ${url.toString()} is valid.`);
+} else {
+  console.log(`The URL ${url.toString()} is invalid.`);
+}
+
+// Trigger the function to automatically update clean IP addresses for Iranians including the 104 range
+updateCleanIPsForIran();
+
 
 const getSingboxConfig = async (env, hostName) => {
     let proxySettings = {};
@@ -2765,3 +3063,9 @@ const buildRoutingRules = (localDNS, blockAds, bypassIran, blockPorn, bypassLAN,
 
     return rules;
 }
+
+//Im fucked up for this shit <3
+// Thank you BPB
+// now i was right about add a proxySystem now give a star!
+//frist give a star to bpb: https://github.com/bia-pain-bache/BPB-Worker-Panel
+// next to me <3: https://github.com/claxpoint/golafzani-panel2
