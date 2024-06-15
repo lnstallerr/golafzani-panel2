@@ -45,7 +45,7 @@ let dohURL = 'https://sky.rethinkdns.com/1:-Pf_____9_8A_AMAIgE8kMABVDDmKOHTAKg='
 // https://sky.rethinkdns.com/1:-Pf_____9_8A_AMAIgE8kMABVDDmKOHTAKg= - لوکال / بهتره
 
 
-let panelVersion = '0.5';
+let panelVersion = '0.6';
 
 if (!isValidUUID(userID)) {
     throw new Error('یویوآیدی اشتباه است');
