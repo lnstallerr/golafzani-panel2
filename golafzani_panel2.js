@@ -14,7 +14,7 @@ import { connect } from 'cloudflare:sockets';
 
 // یویوآیدی را تنظیم کنید
 // بهترین سایت برای برداشتن یویوآیدی اختصاصی: https://fusionauth.io/dev-tools/uuid-generator
-let userID = 'UUID_SHOMA';
+let userID = '639c0983-b992-4437-a880-c9800cb83bb1';
 //در صورت ارور یویوآیدی یبار یویوآیدی را پاک کرده و دوباره وارد کنید و دپلوی و سیو را بزنید
 
 //بهترین بات تلگرام آی پی تمیز = @cfcleanipbot
